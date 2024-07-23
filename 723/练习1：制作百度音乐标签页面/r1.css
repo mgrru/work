@@ -1,0 +1,16 @@
+h1{
+    font-size: 18px;
+    font-family: '楷体';
+    font-weight: bold;
+}
+
+p{
+    font-size: 12px;
+    line-height: 20px;
+}
+
+p span{
+    font-weight: bold;
+    color: red;
+    font-family: 'Times New Roman','宋体';
+}
