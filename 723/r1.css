@@ -1,0 +1,38 @@
+div{
+    width: 300px;
+    height: 300px;
+    border: 1px solid red;
+    padding: 10px;
+}
+a{
+    width: 100px;
+    height: 100px;
+    display: block;
+    text-align: center;
+    line-height: 100px;
+    text-decoration: none;
+    /* border: 1px solid red; */
+    background-color: pink;
+}
+a:hover{
+    background-color: blue;
+    transform: translate(30px,30px) scale(1.1) skew(40deg,-20deg);
+}
+
+a:nth-of-type(2){
+    position: relative;
+    left: 200px;
+    bottom: 100px;
+}
+
+a:nth-of-type(4) {
+    position: relative;
+    left: 100px;
+    bottom: 200px;
+}
+
+a:nth-of-type(5) {
+    position: relative;
+    left: 200px;
+    bottom: 200px;
+}

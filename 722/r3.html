@@ -75,9 +75,11 @@
     <a href="">手机号登陆</a>
     <br><br>
     <form action="">
-      用户名：<input type="text">@163.com <br><br>
-      密码：<input type="password"> <br><br>
-      版本：
+      <label for="name">用户名：</label>
+      <input type="text" id="name">@163.com <br><br>
+      <label for="pass">密码：</label>
+      <input type="password" id="pass"> <br><br>
+      <label for="version">版本：</label>
       <select name="version" id="version">
         <option value="1.0" selected>默认</option>
         <option value="1.1">1.1</option>
@@ -86,8 +88,10 @@
         <option value="1.4">1.4</option>
       </select>
       <br><br>
-      <input type="checkbox" name="box" value="auto login">自动登陆
-      <input type="checkbox" name="box" value="ssl" checked>ssl <br><br>
+      <input type="checkbox" name="box" value="auto-login" id="auto-login">
+      <label for="auto-login">自动登陆</label>
+      <input type="checkbox" name="box" value="ssl" id="ssl" checked>
+      <label for="ssl">ssl</label> <br><br>
       <button type="submit">登陆</button>
       <button type="submit">注册</button>
     </form>
