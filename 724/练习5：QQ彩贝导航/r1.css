@@ -95,7 +95,7 @@ li:nth-of-type(1):hover span {
 }
 
 li:nth-of-type(3):hover span {
-    width: 66px;
+    width: 65px;
     background: url(./images/header_09.png);
     transform: translate(-12px, 0);
     transition: ease-out 1s;
