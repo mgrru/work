@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="">
+
+<head>
+  <meta charset="utf-8">
+  <title></title>
+</head>
+
+<body>
+  <h2 id="time"></h2>
+
+  <script>
+    const time = () => {
+      const rDate = new Date()
+      let year = rDate.getFullYear() + "年"
+      let moonth = rDate.getMonth() + 1 + "月"
+      let date = rDate.getDate() + "日"
+      let ymd = year + moonth + date
+
+      let x = "AM"
+      let hour = rDate.getHours()
+      if (hour > 12) {
+        x = "PM"
+        hour = hour - 12
+      }
+      hour = hour + ":"
+      let min = rDate.getMinutes() + ":"
+      let sec = rDate.getSeconds()
+      let hms = hour + min + sec + " " + x
+
+      let day = rDate.getDay()
+      if (day == 0) {
+        day = "日"
+      }
+      day = "星期" + day
+      return ymd + "  " + hms + "  " + day
+    }
+    
+    setInterval(() => document.getElementById("time").innerHTML = time(), 1000)
+
+  </script>
+</body>
+
+</html>
