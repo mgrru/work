@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="">
+
+<head>
+  <meta charset="utf-8">
+  <title></title>
+</head>
+
+<body>
+  <script>
+    var num = 1687
+    var bai = num / 100 % 10
+    document.write(Math.floor(bai))
+    document.write("hello script")
+    document.write("<h2>hello world</h2>")
+
+    var ticket = Math.random() * 1000
+    if (ticket >= 500) {
+      document.write("a")
+    } else if (ticket >= 100) {
+      document.write("b")
+    } else {
+      document.write("Cc")
+    }
+
+    document.write("<p>-----------while-------------</p>")
+    grade = 0
+    while (grade < 60) {
+      document.write("buke...")
+      document.write("kaoshi...")
+      grade = parseInt(Math.random() * 100)
+      document.write("grade=" + grade + "<br>")
+    }
+    document.write("<p>-----------do..while-------------</p>")
+    do {
+      document.write("buke...")
+      document.write("kaoshi...")
+      grade = parseInt(Math.random() * 100)
+      document.write("grade=" + grade + "<br>")
+    } while (grade < 60)
+
+  </script>
+</body>
+
+</html>
