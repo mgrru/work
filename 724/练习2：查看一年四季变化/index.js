@@ -15,8 +15,10 @@ for (let i = 0; i < link_a.length; i++) {
     } else if (innerHTML.includes("冬")) {
         link_a.item(i).onclick = () => link_to("winter.html")
     } else if (innerHTML === "前进") {
-        link_a.item(i).onclick = () => window.history.forward()
+        link_a.item(i).onclick = () => history.forward()
     } else if (innerHTML === "后退") {
-        link_a.item(i).onclick = () => window.history.back()
+        link_a.item(i).onclick = () => history.back()
+    } else if (innerHTML.includes("刷新")) {
+        link_a.item(i).onclick = () => location.reload()
     }
 }
