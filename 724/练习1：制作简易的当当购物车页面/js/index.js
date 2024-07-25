@@ -35,32 +35,32 @@ li.item(4).onclick = () => {
     alert("结算:" + total_money)
 }
 
-const span_num_book1 = li.item(5).getElementsByTagName("span")
+const span_num_book_1 = li.item(5).getElementsByTagName("span")
 
-span_num_book1.item(0).onclick = () => {
+span_num_book_1.item(0).onclick = () => {
     if (num_book_1 > 1) {
         num_book_1--
-        span_num_book1.item(1).innerHTML = num_book_1
+        span_num_book_1.item(1).innerHTML = num_book_1
     }
 }
 
-span_num_book1.item(2).onclick = () => {
+span_num_book_1.item(2).onclick = () => {
     num_book_1++
-    span_num_book1.item(1).innerHTML = num_book_1
+    span_num_book_1.item(1).innerHTML = num_book_1
 
 }
 
-const span_num_book2 = li.item(6).getElementsByTagName("span")
+const span_num_book_2 = li.item(6).getElementsByTagName("span")
 
-span_num_book1.item(0).onclick = () => {
+span_num_book_1.item(0).onclick = () => {
     if (num_book_2 > 1) {
         num_book_2--
-        span_num_book2.item(1).innerHTML = num_book_2
+        span_num_book_2.item(1).innerHTML = num_book_2
     }
 }
 
-span_num_book2.item(2).onclick = () => {
+span_num_book_2.item(2).onclick = () => {
     num_book_2++
-    span_num_book2.item(1).innerHTML = num_book_2
+    span_num_book_2.item(1).innerHTML = num_book_2
 
 }
