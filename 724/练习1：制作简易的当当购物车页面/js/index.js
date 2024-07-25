@@ -52,7 +52,7 @@ span_num_book_1.item(2).onclick = () => {
 
 const span_num_book_2 = li.item(6).getElementsByTagName("span")
 
-span_num_book_1.item(0).onclick = () => {
+span_num_book_2.item(0).onclick = () => {
     if (num_book_2 > 1) {
         num_book_2--
         span_num_book_2.item(1).innerHTML = num_book_2
