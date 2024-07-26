@@ -1,0 +1,34 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+div{
+    overflow: hidden;
+}
+
+div img{
+    float: left;
+    margin-top: 10px;
+}
+div div{
+    /* display: inline-block; */
+    float: left;
+    margin-top: 10px;
+    margin-left: 10px;
+}
+
+/* div:nth-of-type(2){
+    visibility: visible;
+} */
+
+div:nth-of-type(2) h2{
+    padding: 5px;
+    background-color: gray;
+    color: white;
+    font-size: 16px;
+}
+
+div:nth-of-type(2) p {
+    text-indent: 2em;
+    font-size: 14px;
+}
