@@ -1,4 +1,4 @@
-package com.example;
+package com.ru;
 
 import static org.junit.Assert.assertTrue;
 
