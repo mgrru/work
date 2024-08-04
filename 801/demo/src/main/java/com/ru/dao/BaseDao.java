@@ -2,9 +2,9 @@ package com.ru.dao;
 
 import java.sql.*;
 
-public class MysqlDao {
+public class BaseDao {
   private String driver = "com.mysql.cj.jdbc.Driver";
-  private String url = "jdbc:mysql://localhost:3306/pet?useUnicode=true&characterEncoding=UTF-8&useSSL=false&serverTimezone=Asia/Shanghai";
+  private String url = "jdbc:mysql://localhost:3306/pet_store?useUnicode=true&characterEncoding=UTF-8&useSSL=false&serverTimezone=Asia/Shanghai";
   private String name = "root";
   private String password = "123";
   private Connection connection = null;
