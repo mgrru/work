@@ -14,4 +14,6 @@ public interface AccountDao {
   List<Account> get_all();
 
   Account get_by_id(int id);
+
+  Account get_by_login_name(String name);
 }

@@ -3,22 +3,24 @@ package com.ru.entity;
 import java.sql.Timestamp;
 
 public class Bill {
-  private int bill_id; // 账单编号
+  private int id; // 账单编号
+  private int shop_id; // 商店编号
   private int pet_id; // 宠物编号
-  private int master_id; // 宠物主人编号
+  private int seller_id; // 宠物主人编号
   private int buyer_id; // 买家编号
-  private int transaction_type; // 交易类型(购买/出售)
+  private String transaction_type; // 交易类型(购买/出售)
   private int transaction_price; // 交易金额
   private Timestamp transaction_time; // 交易时间
 
   public Bill() {
   }
 
-  public Bill(int bill_id, int pet_id, int master_id, int buyer_id, int transaction_type,
-      int transaction_price, Timestamp transaction_time) {
-    this.bill_id = bill_id;
-    this.master_id = master_id;
+  public Bill(int id, int shop_id, int pet_id, int seller_id, int buyer_id, String transaction_type, int transaction_price,
+      Timestamp transaction_time) {
+    this.id = id;
+    this.shop_id = shop_id;
     this.pet_id = pet_id;
+    this.seller_id = seller_id;
     this.buyer_id = buyer_id;
     this.transaction_type = transaction_type;
     this.transaction_price = transaction_price;
@@ -27,25 +29,25 @@ public class Bill {
 
   @Override
   public String toString() {
-    return "AccountInfo [bill_id=" + bill_id + ", pet_id=" + pet_id + ", master_id=" + master_id + ", buyer_id="
+    return "Bill [id=" + id + ", shop_id=" + shop_id + ", pet_id=" + pet_id + ", seller_id=" + seller_id + ", buyer_id="
         + buyer_id + ", transaction_type=" + transaction_type + ", transaction_price=" + transaction_price
         + ", transaction_time=" + transaction_time + "]";
   }
 
-  public int get_bill_id() {
-    return bill_id;
+  public int get_id() {
+    return id;
   }
 
-  public void set_bill_id(int bill_id) {
-    this.bill_id = bill_id;
+  public void set_id(int id) {
+    this.id = id;
   }
 
-  public int get_master_id() {
-    return master_id;
+  public int get_seller_id() {
+    return seller_id;
   }
 
-  public void set_master_id(int master_id) {
-    this.master_id = master_id;
+  public void set_seller_id(int seller_id) {
+    this.seller_id = seller_id;
   }
 
   public int get_pet_id() {
@@ -64,11 +66,11 @@ public class Bill {
     this.buyer_id = buyer_id;
   }
 
-  public int get_transaction_type() {
+  public String get_transaction_type() {
     return transaction_type;
   }
 
-  public void set_transaction_type(int transaction_type) {
+  public void set_transaction_type(String transaction_type) {
     this.transaction_type = transaction_type;
   }
 
@@ -86,5 +88,13 @@ public class Bill {
 
   public void set_transaction_time(Timestamp transaction_time) {
     this.transaction_time = transaction_time;
+  }
+
+  public int get_shop_id() {
+    return shop_id;
+  }
+
+  public void set_shop_id(int shop_id) {
+    this.shop_id = shop_id;
   }
 }

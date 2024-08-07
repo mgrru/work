@@ -96,14 +96,14 @@ public class PetDaoImpl extends BaseDao implements PetDao {
       rs = stmt.executeQuery();
       while (rs.next()) {
         Pet pet = new Pet();
-        pet.set_id(rs.getInt(0));
-        pet.set_master_id(rs.getInt(1));
-        pet.set_shop_id(rs.getInt(2));
-        pet.set_name(rs.getString(3));
-        pet.set_type(rs.getString(4));
-        pet.set_health(rs.getInt(5));
-        pet.set_intimacy(rs.getInt(6));
-        pet.set_birthday(rs.getTimestamp(7));
+        pet.set_id(rs.getInt(1));
+        pet.set_master_id(rs.getInt(2));
+        pet.set_shop_id(rs.getInt(3));
+        pet.set_name(rs.getString(4));
+        pet.set_type(rs.getString(5));
+        pet.set_health(rs.getInt(6));
+        pet.set_intimacy(rs.getInt(7));
+        pet.set_birthday(rs.getTimestamp(8));
         result.add(pet);
       }
     } catch (Exception e) {
@@ -130,14 +130,14 @@ public class PetDaoImpl extends BaseDao implements PetDao {
       rs = stmt.executeQuery();
       while (rs.next()) {
         Pet pet = new Pet();
-        pet.set_id(rs.getInt(0));
-        pet.set_master_id(rs.getInt(1));
-        pet.set_shop_id(rs.getInt(2));
-        pet.set_name(rs.getString(3));
-        pet.set_type(rs.getString(4));
-        pet.set_health(rs.getInt(5));
-        pet.set_intimacy(rs.getInt(6));
-        pet.set_birthday(rs.getTimestamp(7));
+        pet.set_id(rs.getInt(1));
+        pet.set_master_id(rs.getInt(2));
+        pet.set_shop_id(rs.getInt(3));
+        pet.set_name(rs.getString(4));
+        pet.set_type(rs.getString(5));
+        pet.set_health(rs.getInt(6));
+        pet.set_intimacy(rs.getInt(7));
+        pet.set_birthday(rs.getTimestamp(8));
         result.add(pet);
       }
     } catch (Exception e) {

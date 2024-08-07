@@ -14,9 +14,10 @@ import com.ru.dao.AccountDao;
 import com.ru.dao.BaseDao;
 import com.ru.entity.Account;
 import com.ru.entity.Master;
+import com.ru.entity.Shop;
 
 public class MasterDaoImpl extends BaseDao implements AccountDao {
-  private static final Logger logger = LogManager.getLogger(PetDaoImpl.class);
+  private static final Logger logger = LogManager.getLogger(MasterDaoImpl.class);
 
   @Override
   public void add(Account account) {
@@ -86,10 +87,10 @@ public class MasterDaoImpl extends BaseDao implements AccountDao {
       rs = stmt.executeQuery(sql);
       while (rs.next()) {
         Account account = new Master();
-        account.set_id(rs.getInt(0));
-        account.set_login_name(rs.getString(1));
-        account.set_login_pass(rs.getString(2));
-        account.set_balance(rs.getInt(3));
+        account.set_id(rs.getInt(1));
+        account.set_login_name(rs.getString(2));
+        account.set_login_pass(rs.getString(3));
+        account.set_balance(rs.getInt(4));
         result.add(account);
       }
     } catch (Exception e) {
@@ -115,10 +116,38 @@ public class MasterDaoImpl extends BaseDao implements AccountDao {
       stmt.setInt(1, id);
       rs = stmt.executeQuery();
       while (rs.next()) {
-        account.set_id(rs.getInt(0));
-        account.set_login_name(rs.getString(1));
-        account.set_login_pass(rs.getString(2));
-        account.set_balance(rs.getInt(3));
+        account.set_id(rs.getInt(1));
+        account.set_login_name(rs.getString(2));
+        account.set_login_pass(rs.getString(3));
+        account.set_balance(rs.getInt(4));
+      }
+    } catch (Exception e) {
+      logger.error(e);
+    } finally {
+      closeAll(conn, stmt, rs);
+    }
+
+    return account;
+  }
+
+  @Override
+  public Account get_by_login_name(String login_name) {
+    String sql = "select * from master where login_name=?";
+    Account account = new Shop();
+    Connection conn = null;
+    PreparedStatement stmt = null;
+    ResultSet rs = null;
+
+    try {
+      conn = getConnection();
+      stmt = conn.prepareStatement(sql);
+      stmt.setString(1, login_name);
+      rs = stmt.executeQuery();
+      while (rs.next()) {
+        account.set_id(rs.getInt(1));
+        account.set_login_name(rs.getString(2));
+        account.set_login_pass(rs.getString(3));
+        account.set_balance(rs.getInt(4));
       }
     } catch (Exception e) {
       logger.error(e);

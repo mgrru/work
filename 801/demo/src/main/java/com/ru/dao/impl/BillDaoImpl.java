@@ -55,14 +55,14 @@ public class BillDaoImpl extends BaseDao implements BillDao {
       rs = stmt.executeQuery();
       while (rs.next()) {
         Bill bill = new Bill();
-        bill.set_id(rs.getInt(0));
-        bill.set_shop_id(rs.getInt(1));
-        bill.set_pet_id(rs.getInt(2));
-        bill.set_seller_id(rs.getInt(3));
-        bill.set_buyer_id(rs.getInt(4));
-        bill.set_transaction_type(rs.getString(5));
-        bill.set_transaction_price(rs.getInt(6));
-        bill.set_transaction_time(rs.getTimestamp(7));
+        bill.set_id(rs.getInt(1));
+        bill.set_shop_id(rs.getInt(2));
+        bill.set_pet_id(rs.getInt(3));
+        bill.set_seller_id(rs.getInt(4));
+        bill.set_buyer_id(rs.getInt(5));
+        bill.set_transaction_type(rs.getString(6));
+        bill.set_transaction_price(rs.getInt(7));
+        bill.set_transaction_time(rs.getTimestamp(8));
         result.add(bill);
       }
     } catch (Exception e) {
