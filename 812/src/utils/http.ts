@@ -1,6 +1,6 @@
 import axios, { type AxiosInstance, type InternalAxiosRequestConfig, type AxiosResponse } from 'axios'
 
-const http: AxiosInstance = axios.create({  // 创建axios实例，实例名为http
+const http: AxiosInstance = axios.create({ // 创建axios实例，实例名为http
     // baseURL: 'http://127.0.0.1:8088',  // 注意不能使用localhost
     timeout: 10000,
     headers: {
@@ -29,7 +29,7 @@ http.interceptors.response.use(
     (response: AxiosResponse) => {
         // 在每个响应返回后可以进行一些处理，例如处理错误状态码
         if (response.status >= 200 && response.status < 300) {
-            return response.data
+            return response
         } else {
             // 可以进行错误处理
             return Promise.reject(response)
