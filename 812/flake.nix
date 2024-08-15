@@ -28,9 +28,9 @@
         in
         pkgs.mkShell {
           packages = with pkgs; [
-            nodejs_22
+            nodejs_20
             nodePackages.pnpm
-            (pnpm.override { nodejs = nodejs_22; })
+            (pnpm.override { nodejs = nodejs_20; })
           ];
 
           shellHook = ''
