@@ -29,7 +29,7 @@
         pkgs.mkShell {
           packages = with pkgs; [
             nodejs_20
-            nodePackages.pnpm
+            # nodePackages.pnpm
             (pnpm.override { nodejs = nodejs_20; })
           ];
 
