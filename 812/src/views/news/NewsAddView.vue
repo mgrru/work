@@ -1,4 +1,10 @@
 <template>
+  <el-breadcrumb separator="/">
+    <el-breadcrumb-item :to="{ path: '/main' }">首页</el-breadcrumb-item>
+    <el-breadcrumb-item>新闻管理</el-breadcrumb-item>
+    <el-breadcrumb-item>添加新闻信息</el-breadcrumb-item>
+  </el-breadcrumb>
+  <br>
   <el-form :model="add_form">
     <el-form-item label="标题" :label-width="dialog_form_label_width">
       <el-input v-model="add_form.title" autocomplete="off" />
@@ -36,7 +42,9 @@ import {
   ElSelect,
   ElOption,
   ElDatePicker,
-  ElButton
+  ElButton,
+  ElBreadcrumb,
+  ElBreadcrumbItem
 } from 'element-plus'
 import { onMounted, ref, type Ref } from 'vue'
 
@@ -78,7 +86,7 @@ const on_add_reset = () => {
   Object.assign(add_form.value, add_form_origin)
 }
 
-onMounted(()=>{
+onMounted(() => {
   get_news_type()
 })
 </script>

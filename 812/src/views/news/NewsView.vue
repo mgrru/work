@@ -3,7 +3,7 @@
   <el-breadcrumb separator="/">
     <el-breadcrumb-item :to="{ path: '/main' }">首页</el-breadcrumb-item>
     <el-breadcrumb-item>新闻管理</el-breadcrumb-item>
-    <el-breadcrumb-item>添加新闻信息</el-breadcrumb-item>
+    <el-breadcrumb-item>新闻信息</el-breadcrumb-item>
   </el-breadcrumb>
   <!-- 搜索表单 -->
   <el-form :inline="true" :model="form_search" class="demo-form-inline">
