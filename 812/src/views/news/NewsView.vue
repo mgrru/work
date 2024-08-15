@@ -1,9 +1,9 @@
 <template>
   <!-- 面包屑导航 -->
   <el-breadcrumb separator="/">
-    <el-breadcrumb-item :to="{ path: 'main' }">首页</el-breadcrumb-item>
+    <el-breadcrumb-item :to="{ path: '/main' }">首页</el-breadcrumb-item>
     <el-breadcrumb-item>新闻管理</el-breadcrumb-item>
-    <el-breadcrumb-item>新闻信息</el-breadcrumb-item>
+    <el-breadcrumb-item>添加新闻信息</el-breadcrumb-item>
   </el-breadcrumb>
   <!-- 搜索表单 -->
   <el-form :inline="true" :model="form_search" class="demo-form-inline">
@@ -47,6 +47,39 @@
   <!-- 分页导航 -->
   <el-pagination background style="margin-top: 20px;" layout="prev, pager, next, jumper" :total="page_info.total"
     @current-change="handle_current_change" />
+  <!-- 更新新闻模态框 -->
+  <el-dialog v-model="dialog_edit" title="更新新闻" width="800">
+    <el-form :model="edit_form">
+      <el-form-item label="新闻ID" label-width="dialog_form_label_width">
+        <el-input v-model="edit_form.id" readonly />
+      </el-form-item>
+      <el-form-item label="标题" label-width="dialog_form_label_width">
+        <el-input v-model="edit_form.title" autocomplete="off" />
+      </el-form-item>
+      <el-form-item label="新闻类别" label-width="dialog_form_label_width">
+        <el-select v-model="edit_form.typeid" placeholder="新闻类别" clearable>
+          <el-option v-for="item in news_type" :key="item.id" :label="item.typename" :value="item.id"
+            :selected="edit_form.typeid == item.id" />
+        </el-select>
+      </el-form-item>
+      <el-form-item label="摘要" label-width="dialog_form_label_width">
+        <el-input v-model="edit_form.describe" autocomplete="off" />
+      </el-form-item>
+      <el-form-item label="内容" label-width="dialog_form_label_width">
+        <el-input v-model="edit_form.content" :rows="10" type="textarea" autocomplete="off" />
+      </el-form-item>
+      <el-form-item label="发布日期" label-width="dialog_form_label_width">
+        <el-date-picker v-model="edit_form.publishDate" type="datetime" placeholder="发布日期"
+          value-format="YYYY-MM-DD HH:mm:ss" clearable />
+      </el-form-item>
+    </el-form>
+    <template #footer>
+      <div class="dialog-footer">
+        <el-button @click="on_edit_reset">取消</el-button>
+        <el-button type="primary" @click="on_edit_submit">更新</el-button>
+      </div>
+    </template>
+  </el-dialog>
   <!-- 插入新闻模态框 -->
   <el-dialog v-model="dialog_add" title="添加新闻" width="800">
     <el-form :model="add_form">
@@ -119,7 +152,7 @@ const on_search_reset = () => {
 }
 
 interface NewsType {
-  id: number
+  id: number | string
   typename: string
 }
 const news_type: Ref<NewsType[]> = ref([])
@@ -147,11 +180,12 @@ const handler_del_more = () => {
 
 // #region <!-- 数据表格 -->
 interface New {
-  id: number
+  id: number | string
   title: string
   describe: string
-  typeid: number
-  publishDate: Date
+  content: string
+  typeid: number | string
+  publishDate: Date | string
 }
 
 const news: Ref<New[]> = ref([])
@@ -169,6 +203,8 @@ const get_news = () => {
 
 const handle_edit = (index: number, row: New) => {
   console.log(index, row)
+  Object.assign(edit_form.value, row)
+  dialog_edit.value = true
 }
 const handle_delete = (index: number, row: New) => {
   console.log(index, row)
@@ -228,6 +264,30 @@ const on_add_submit = () => {
 const on_add_reset = () => {
   dialog_add.value = false
   Object.assign(add_form.value, add_form_origin)
+}
+
+// #endregion
+
+// #region <!-- 更新新闻模态框 -->
+// 编辑对话框
+const dialog_edit = ref(false)
+const edit_form: Ref<New> = ref({
+  id: '',
+  title: '',
+  describe: '',
+  content: '',
+  typeid: '',
+  publishDate: ''
+})
+
+const on_edit_submit = () => {
+  console.log(edit_form)
+  ElMessage.success('更新成功!')
+  get_news()
+  on_edit_reset()
+}
+const on_edit_reset = () => {
+  dialog_edit.value = false
 }
 
 // #endregion
