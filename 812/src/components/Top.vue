@@ -11,7 +11,7 @@
         <template #dropdown>
           <el-dropdown-menu>
             <el-dropdown-item @click="upd_photo" :icon="User">修改头像</el-dropdown-item>
-            <el-dropdown-item :icon="Setting">修改密码</el-dropdown-item>
+            <el-dropdown-item @click="upd_pass" :icon="Setting">修改密码</el-dropdown-item>
             <el-dropdown-item divided :icon="CircleClose">退出</el-dropdown-item>
           </el-dropdown-menu>
         </template>
@@ -19,6 +19,7 @@
     </el-col>
   </el-row>
 
+  <upd-pass v-model:visible="upd_pass_dialog_visible" v-model:user_pass="user_pass" />
 </template>
 
 <script setup lang="ts">
@@ -27,6 +28,7 @@ import { ElCol, ElRow, ElDropdown, ElDropdownItem, ElDropdownMenu, ElAvatar } fr
 import DefaultPhoto from '@/assets/img/bg.png'
 import { onMounted, ref, type Ref } from 'vue'
 import http from '@/utils/http'
+import UpdPass from './UpdPass.vue'
 
 const userInfo = ref({
   userId: '1',
@@ -65,6 +67,12 @@ const upd_photo = () => {
     console.log(res.data.data)
     userInfo.value.userphoto = res.data.data.userphone
   })
+}
+
+const upd_pass_dialog_visible = ref(false)
+const user_pass = ref('')
+const upd_pass = () => {
+  upd_pass_dialog_visible.value = true
 }
 
 onMounted(() => {
